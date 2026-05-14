@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derivative and Integral</title>
+    <link rel="stylesheet" href="daoham.css">
+</head>
+<body>
+    
+    <!-- Phần Đạo Hàm -->
+    <div class="container" id="ctn">
+        <form id="inp_form">
+            <h1>Đạo hàm</h1>
+            <div class="sbm">
+                <input type="text" id="inp" placeholder="Nhập hàm số (vd: x^2 + ln(x))" autocomplete="off">
+                <button type="button" class="btn" id="btn_daoham">Submit</button>
+            </div>
+            <p id="results">Kết quả sẽ hiển thị tại đây</p>
+        </form>
+    </div>
+
+    <!-- Phần Nguyên Hàm -->
+    <div class="container" id="ctn_2">
+        <form id="inp_form_2">
+            <h1>Nguyên hàm</h1>
+            <div class="sbm">
+                <input type="text" id="inp_2" placeholder="Nhập hàm số (vd: 2x + cos(x))" autocomplete="off">
+                <button type="button" class="btn" id="btn_nguyenham">Submit</button>
+            </div>
+            <p id="results_2">Kết quả sẽ hiển thị tại đây</p>
+        </form>
+    </div>
+
+    <!-- Thư viện Math.js -->
+     <script src="https://cdn.jsdelivr.net/npm/algebrite@1.4.0/dist/algebrite.bundle-for-browser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.js"></script>
+    <!-- File xử lý logic -->
+    <script src="daoham.js"></script>
+</body>
+</html>

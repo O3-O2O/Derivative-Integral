@@ -1,0 +1,180 @@
+/* --- PHONG CÁCH NOSTALGIA DARK --- */
+
+/* 1. Reset và Biến màu sắc hoài cổ */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* Font chữ đơn cách gợi nhớ màn hình máy tính cũ */
+    font-family: 'Courier New', Courier, monospace;
+}
+
+:root {
+    --bg-color: #0d0d0d;        /* Đen sâu */
+    --container-bg: #1a1a1a;    /* Xám đen */
+    --text-main: #33ff33;       /* Xanh lá Terminal */
+    --text-dim: #1a801a;        /* Xanh lá tối */
+    --accent-blue: #00ccff;     /* Xanh cyan hoài cổ */
+    --accent-orange: #ffb300;   /* Hổ phách (Amber) */
+    --border-color: #333;
+}
+
+body {
+    background-color: var(--bg-color);
+    background-image: radial-gradient(#1a1a1a 1px, transparent 1px); /* Hiệu ứng CRT scanline nhẹ */
+    background-size: 100% 3px;
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+    gap: 40px;
+    min-height: 100vh;
+}
+
+/* 2. Container chính - Kiểu khối hộp thô cứng cổ điển */
+.container {
+    background: var(--container-bg);
+    padding: 35px;
+    border: 2px solid var(--text-dim);
+    border-radius: 4px; /* Bo góc ít hơn để tạo cảm giác cũ */
+    box-shadow: 10px 10px 0px rgba(0, 0, 0, 1); /* Bóng đổ cứng (Hard shadow) */
+    width: 100%;
+    max-width: 700px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Hiệu ứng nháy (flicker) nhẹ cho container */
+.container::before {
+    content: " ";
+    display: block;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 2;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+}
+
+h1 {
+    font-size: 1.5rem;
+    color: var(--text-main);
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-shadow: 2px 2px 8px var(--text-dim);
+}
+
+/* Gạch chân kiểu Retro */
+h1::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 20%;
+    width: 60%;
+    height: 2px;
+    background: var(--text-main);
+}
+
+#ctn_2 h1 { color: var(--accent-orange); }
+#ctn_2 h1::after { background: var(--accent-orange); }
+
+/* 3. Khu vực Input - Giống các ô nhập liệu DOS */
+.sbm {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+input[type="text"] {
+    flex: 5;
+    background: #000;
+    padding: 15px 20px;
+    font-size: 1.1rem;
+    color: var(--text-main);
+    border: 1px solid var(--text-dim);
+    border-radius: 0;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+    border-color: var(--text-main);
+    box-shadow: 0 0 10px var(--text-dim);
+}
+
+#ctn_2 input[type="text"] { color: var(--accent-orange); border-color: #664400; }
+#ctn_2 input[type="text"]:focus { border-color: var(--accent-orange); }
+
+/* 4. Nút bấm - Kiểu nút cơ học */
+button {
+    flex: 1;
+    background-color: transparent;
+    color: var(--text-main);
+    border: 1px solid var(--text-main);
+    border-radius: 0;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+button:hover {
+    background-color: var(--text-main);
+    color: #000;
+    box-shadow: 0 0 15px var(--text-main);
+}
+
+#btn_nguyenham {
+    color: var(--accent-orange);
+    border-color: var(--accent-orange);
+}
+
+#btn_nguyenham:hover {
+    background-color: var(--accent-orange);
+    color: #000;
+    box-shadow: 0 0 15px var(--accent-orange);
+}
+
+button:active {
+    transform: translateY(2px);
+}
+
+/* 5. Hiển thị kết quả - Như màn hình Terminal con */
+#results, #results_2 {
+    background-color: #050505;
+    padding: 25px;
+    border: 1px dashed var(--text-dim);
+    font-size: 1.2rem;
+    color: var(--text-main);
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-wrap: break-word;
+    position: relative;
+}
+
+#results::before { content: "> "; position: absolute; left: 10px; }
+#results_2::before { content: "> "; position: absolute; left: 10px; color: var(--accent-orange); }
+
+#results_2 {
+    color: var(--accent-orange);
+    border-color: #664400;
+}
+
+/* Công thức toán học nổi bật */
+b {
+    color: #fff;
+    text-shadow: 0 0 5px var(--text-main);
+    font-style: normal;
+    margin-left: 10px;
+    background: #222;
+    padding: 2px 8px;
+}
+
+#results_2 b {
+    text-shadow: 0 0 5px var(--accent-orange);
+}
